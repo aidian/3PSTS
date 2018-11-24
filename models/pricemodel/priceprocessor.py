@@ -37,13 +37,14 @@ isError = 0
 
 
 
-isRisingReturnPrice = 1 # 是否上升回调
-minPrice = 12.74 # 最低价格
-maxPrice = 15.22 #最高价格
+isRisingReturnPrice = 1 # 0 为下跌反弹，1为上升回调
 
+minPrice = 9.85 # 最小价格
+maxPrice = 29.12 #最大价格
 
-htPrice = 14.23 # 上升一笔后的回调价格
-curPrice = 2680 # 当前价格
+htPrice = 19 # 回调价格（上升回调才需要）
+
+curPrice = 20 # 当前价格
 
 print("-----------------------------原始数据-----------------------------------------------------")
 
@@ -97,21 +98,32 @@ if  isError == 0 and isRisingReturnPrice == 1:
 
     tp1 = (maxPrice / minPrice) * htPrice
     tp2 = pow(maxPrice / minPrice, sMaxLine) * htPrice
-    sMaxGsj = pow(minPrice, maxGsjLine) * pow(maxPrice, minGsjLine)
 
-    print("上升回落第一关 %.2f 若支撑住，大概率继续上升，突破压力位第一关（乐观谨慎） %.2f 突破压力位第二关（非常谨慎） %.2f 最大突破关（非常危险）：%.2f" % (sp1, tp1, tp2, sMaxGsj))
-    print("上升回落第二关 %.2f 大概率震荡，谨慎操作！！！" % sp2)
-    print("上升回落第三关 %.2f 大概率继续下跌，禁止买入！！！" % sp3)
-    print("上升回落最大关 %.2f 大概率创新低，禁止买入！！！" % sMaxGsj)
+    if htPrice > 0:
+        sp1yaliwei = pow(maxPrice, maxGsjLine) * pow(sp1, minGsjLine)
+        sp2yaliwei = pow(maxPrice, maxGsjLine) * pow(sp2, minGsjLine)
+        sp3yaliwei = pow(maxPrice, maxGoldLine) * pow(sp3, minGoldLine)
 
-    # if curPrice >= sp1:
-    #     print("小心操作，准备买入，还未跌破第一关：%.2f 最大下跌空间：%.2f%%" %(sp1,(curPrice - sp1) / curPrice * 100))
-    #
-    # if curPrice > sp1 and curPrice <= tp1:
-    #     print ("买入后第一关压力位：%.2f 上升空间：%.2f%%" % (tp1, (tp1 - curPrice) / curPrice * 100))
-    #
-    # if curPrice > tp1 and curPrice <= tp2:
-    #     print ("突破第一关压力位：%.2f 第二关压力位：%.2f 上升空间：%.2f%%" %(tp1,tp2,(tp2 - curPrice) / curPrice * 100))
+        if curPrice >= htPrice and curPrice < sp1yaliwei:
+            print("上升回调第一关，当前价格【%.2f】，将会面对第一压力位（当前回调价格对应的下跌反弹最大甘氏角）【%.2f】，大概率震荡，谨慎操作！！！" % (curPrice, sp1yaliwei))
+        if curPrice >= sp1yaliwei and curPrice < maxPrice:
+            print("回调突破第一压力位【%.2f】，将会面对第二压力位（当前最高价格）【%.2f】，大概率继续创新高，谨慎操作！！！" % (sp1yaliwei,maxPrice))
+        if curPrice > maxPrice and curPrice < tp1:
+            print("已创新高【%.2f】，将面对压力位【%.2f】，有可能再次下跌，非常谨慎操作，逃顶！！！" % (curPrice,tp1))
+        if curPrice >= tp1 and curPrice < tp2:
+            print("再次创新高【%.2f】，将面对压力位【%.2f】，大概率再次下跌，非常危险，逃顶！！！" % (curPrice,tp2))
+        if curPrice >= tp2:
+            print ("平仓！平仓！平仓！别人贪婪时，我恐惧！！！")
+
+        if  curPrice > sp3 and curPrice < sp2:
+            print("上升回调第二关【%.2f】，大概率震荡，该回调价格对应的压力位，【下跌反弹最大甘氏角】【%.2f】，谨慎操作！！！" % (sp2, sp2yaliwei))
+        if curPrice <= sp3:
+            print("上升回调第三关【%.2f】，大概率继续下跌，创新低，该回调价格对应的压力位，【下跌反弹第三关】【%.2f】，禁止买入！！！" % (sp3, sp3yaliwei))
+
+    if htPrice <= 0:
+        print("上升回调第一关【%.2f】，没有回调价格，禁止买入！！！" % sp1)
+        print("上升回调第二关【%.2f】，没有回调价格，禁止买入！！！" % sp2)
+        print("上升回调第二关【%.2f】，没有回调价格，禁止买入！！！" % sp3)
 
 if isError == 0 and isRisingReturnPrice == 0:
     # 下降趋势反弹
@@ -121,22 +133,10 @@ if isError == 0 and isRisingReturnPrice == 0:
     xp2 = math.sqrt(maxPrice * minPrice)
     xp1 = pow(maxPrice, minGoldLine) * pow(minPrice, maxGoldLine)
     xMaxGsj = pow(maxPrice, maxGsjLine) * pow(minPrice, minGsjLine)
-    print("下跌反弹P1 %.2f 非常危险，随时平仓！！！" % xp1)
-    print("下跌反弹P2 %.2f 大概率震荡，谨慎操作！！！" % xp2)
-    print("下跌反弹P3 %.2f 大概率继续上升，乐观谨慎！！！" % xp3)
-    print("下跌反弹G %.2f 大概率反转突破上一次高点，非常谨慎！！！" % xMaxGsj)
-
-    # if curPrice < xp1:
-    #     print ("禁止买入！！！随时准备平仓！！！，下跌反弹还未突破第一关：%.2f，还需要升高：%.2f%%" %(xp1, (xp1 - curPrice) / curPrice * 100))
-    #
-    # if curPrice >= xp1 and curPrice < xp2:
-    #     print ("大概率震荡！！！非常小心操作，随时准备平仓，下跌反弹距离第二关：%.2f，还需要升高%.2f%%" %(xp2, ((xp2 - curPrice) / curPrice * 100)))
-    #
-    # if curPrice >= xp2 and curPrice < xp3:
-    #     print ("突破第二关，非常小心操作！！！大概率震荡，距离第三关：%0.2f 还需要升高：%.2f%%" %(xp3,((xp3 - curPrice) / curPrice * 100)))
-    #
-    # if curPrice >= xp3:
-    #     print("突破第三关，非常危险，随时平仓！！！距离最大警告点：%0.2f 上升空间：%.2f%%" %(xMaxGsj,((xMaxGsj - curPrice) / curPrice * 100)))
+    print("下跌反弹第一关【%.2f】，大概率继续下跌，创新低，非常危险，禁止买入！！！" % xp1)
+    print("下跌反弹第二关【%.2f】，大概率震荡，谨慎操作！！！" % xp2)
+    print("下跌反弹第三关【%.2f】，大概率继续上升，乐观谨慎！！！" % xp3)
+    print("下跌反弹最大甘氏角【%.2f】，大概率反转，突破上一次高点，乐观谨慎！！！" % xMaxGsj)
 
 
 
