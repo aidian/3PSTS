@@ -121,10 +121,10 @@ if isError == 0 and isRisingReturnPrice == 0:
     xp2 = math.sqrt(maxPrice * minPrice)
     xp1 = pow(maxPrice, minGoldLine) * pow(minPrice, maxGoldLine)
     xMaxGsj = pow(maxPrice, maxGsjLine) * pow(minPrice, minGsjLine)
-    print("下跌反弹P1 %.2f 随时平仓！！！" % xp1)
-    print("下跌反弹P2 %.2f 大概率震荡" % xp2)
-    print("下跌反弹P3 %.2f 大概率继续上升" % xp3)
-    print("下跌反弹G %.2f 大概率开始回落" % xMaxGsj)
+    print("下跌反弹P1 %.2f 非常危险，随时平仓！！！" % xp1)
+    print("下跌反弹P2 %.2f 大概率震荡，谨慎操作！！！" % xp2)
+    print("下跌反弹P3 %.2f 大概率继续上升，乐观谨慎！！！" % xp3)
+    print("下跌反弹G %.2f 大概率反转突破上一次高点，非常谨慎！！！" % xMaxGsj)
 
     # if curPrice < xp1:
     #     print ("禁止买入！！！随时准备平仓！！！，下跌反弹还未突破第一关：%.2f，还需要升高：%.2f%%" %(xp1, (xp1 - curPrice) / curPrice * 100))

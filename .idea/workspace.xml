@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e78b7111-2817-4ccd-91ad-b323cb427f80" name="Default Changelist" comment="初始化">
-      <change afterPath="$PROJECT_DIR$/models/pricemodel/priceconstants.py" afterDir="false" />
+    <list default="true" id="e78b7111-2817-4ccd-91ad-b323cb427f80" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/pricemodel/priceprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/pricemodel/priceprocessor.py" afterDir="false" />
     </list>
@@ -20,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/pricemodel/priceprocessor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
+            <state relative-caret-position="136">
+              <caret line="124" column="44" lean-forward="true" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -60,7 +59,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="161" />
     <option name="y" value="222" />
     <option name="width" value="1490" />
@@ -157,23 +156,31 @@
       <workItem from="1543023136532" duration="1300000" />
       <workItem from="1543024466751" duration="3861000" />
       <workItem from="1543029327868" duration="5670000" />
-      <workItem from="1543038333969" duration="3530000" />
+      <workItem from="1543038333969" duration="3797000" />
     </task>
+    <task id="LOCAL-00001" summary="upgrade">
+      <created>1543042025343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1543042025343</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14382000" />
+    <option name="totallyTimeSpent" value="14649000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
+    <frame x="161" y="222" width="1490" height="951" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19029851" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24965034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49817386" visible="true" weight="0.3097713" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49817386" visible="true" weight="0.36474907" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -194,6 +201,10 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="upgrade" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrade" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/models/pricemodel/priceconstants.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -204,8 +215,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/pricemodel/priceprocessor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
+        <state relative-caret-position="136">
+          <caret line="124" column="44" lean-forward="true" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="44" />
         </state>
       </provider>
     </entry>
