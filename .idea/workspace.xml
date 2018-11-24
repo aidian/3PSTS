@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e78b7111-2817-4ccd-91ad-b323cb427f80" name="Default Changelist" comment="初始化">
+    <list default="true" id="e78b7111-2817-4ccd-91ad-b323cb427f80" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/pricemodel/priceprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/pricemodel/priceprocessor.py" afterDir="false" />
     </list>
@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/pricemodel/priceprocessor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="101" column="92" selection-start-line="101" selection-start-column="92" selection-end-line="101" selection-end-column="92" />
+            <state relative-caret-position="344">
+              <caret line="106" column="16" lean-forward="true" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -130,6 +130,14 @@
       <option name="presentableId" value="Default" />
       <updated>1543021477320</updated>
     </task>
+    <task id="LOCAL-00001" summary="upgruade">
+      <created>1543037677268</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1543037677269</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -154,5 +162,9 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="upgruade" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgruade" />
   </component>
 </project>

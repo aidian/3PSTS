@@ -35,7 +35,7 @@ maxPrice = 2703.51 #最高价格
 
 
 htPrice = 0 # 上升一笔后的回调价格
-curPrice = 2636 # 当前价格
+curPrice = 2651 # 当前价格
 
 print("-----------------------------原始数据-----------------------------------------------------")
 
@@ -59,10 +59,10 @@ if curPrice <= 0 or curPrice < minPrice:
     isError = 1
     print ("警告：当前价格异常")
 
-print("-----------------------------买入卖出结论-----------------------------------------------------")
-
 if  isError == 0 and isRisingReturnPrice == 1:
     # 上升趋势回调
+    print("-----------------------------上升回落买入卖出结论-----------------------------------------------------")
+
     sp1 = pow(maxPrice, maxGoldLine) * pow(minPrice, minGoldLine)
     sp2 = math.sqrt(maxPrice * minPrice)
     sp3 = pow(maxPrice, minGoldLine) * pow(minPrice, maxGoldLine)
@@ -89,6 +89,8 @@ if  isError == 0 and isRisingReturnPrice == 1:
 
 if isError == 0 and isRisingReturnPrice == 0:
     # 下降趋势反弹
+    print("-----------------------------下跌反弹买入卖出结论-----------------------------------------------------")
+
     xp3 = pow(maxPrice, maxGoldLine) * pow(minPrice, minGoldLine)
     xp2 = math.sqrt(maxPrice * minPrice)
     xp1 = pow(maxPrice, minGoldLine) * pow(minPrice, maxGoldLine)
@@ -100,6 +102,9 @@ if isError == 0 and isRisingReturnPrice == 0:
 
     if curPrice < xp1:
         print ("禁止买入！！！随时准备平仓！！！，下跌反弹还未突破第一关：%.2f，还需要升高：%.2f%%" %(xp1, (xp1 - curPrice) / curPrice * 100))
+
+    if curPrice >= xp1 and curPrice < xp2:
+        print ("大概率震荡！！！小心操作，随时准备平仓，下跌反弹距离第二关：%.2f%%" %((xp2 - curPrice) / curPrice * 100))
 
 
 
