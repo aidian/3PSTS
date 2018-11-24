@@ -30,12 +30,12 @@ isError = 0
 
 
 isRisingReturnPrice = 0 # 是否上升回调
-minPrice = 30 # 最低价格
-maxPrice = 33.89 #最高价格
+minPrice = 2618.09 # 最低价格
+maxPrice = 2703.51 #最高价格
 
 
-htPrice = 92.58 # 上升一笔后的回调价格
-curPrice = 93 # 当前价格
+htPrice = 0 # 上升一笔后的回调价格
+curPrice = 2636 # 当前价格
 
 print("-----------------------------原始数据-----------------------------------------------------")
 
@@ -48,9 +48,9 @@ print("当前价格 %.2f" %curPrice)
 if maxPrice < minPrice:
     isError = 1
     print ("警告：最大价格小于最小价格")
-if htPrice < minPrice:
+if htPrice > maxPrice:
     isError = 1
-    print ("警告：回调价格小于最小价格")
+    print ("警告：回调价格大于最大价格")
 if isRisingReturnPrice == 1 and htPrice > maxPrice:
     isError = 1
     print ("警告：回调价格大于最高价格")
@@ -75,6 +75,9 @@ if  isError == 0 and isRisingReturnPrice == 1:
     # print("上升回落P3 %.2f" % sp3)
     # print("上升反弹G %.2f" % sMaxGsj)
 
+    if curPrice > sp1:
+        print ("还没到回调价格 %.2f，下跌空间：%.2f%%" % (sp1, (curPrice - sp1) / curPrice * 100))
+
     if htPrice >= sp1:
         print("可以买入，上升回落第一关：%.2f 高于第一关：%.2f%%" %(sp1,(htPrice - sp1) / sp1 * 100))
 
@@ -90,10 +93,13 @@ if isError == 0 and isRisingReturnPrice == 0:
     xp2 = math.sqrt(maxPrice * minPrice)
     xp1 = pow(maxPrice, minGoldLine) * pow(minPrice, maxGoldLine)
     xMaxGsj = pow(maxPrice, maxGsjLine) * pow(minPrice, minGsjLine)
-    print("下跌反弹P1 %.2f" % xp1)
-    print("下跌反弹P2 %.2f" % xp2)
-    print("下跌反弹P3 %.2f" % xp3)
-    print("下跌反弹G %.2f" % xMaxGsj)
+    # print("下跌反弹P1 %.2f" % xp1)
+    # print("下跌反弹P2 %.2f" % xp2)
+    # print("下跌反弹P3 %.2f" % xp3)
+    # print("下跌反弹G %.2f" % xMaxGsj)
+
+    if curPrice < xp1:
+        print ("禁止买入！！！随时准备平仓！！！，下跌反弹还未突破第一关：%.2f，还需要升高：%.2f%%" %(xp1, (xp1 - curPrice) / curPrice * 100))
 
 
 
